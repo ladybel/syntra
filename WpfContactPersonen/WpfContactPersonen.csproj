@@ -7,10 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Fotos\delete.png" />
     <None Remove="Fotos\delete1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Remove="Fotos\search.png" />
+    <None Remove="Fotos\edit.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,18 +17,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Klanten.data\Klanten.data.csproj" />
+    <ProjectReference Include="..\ContactPersonen.Data\ContactPersonen.Data.csproj" />
     <ProjectReference Include="..\Tools\Tools.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Fotos\delete.png" />
     <Resource Include="Fotos\delete1.png" />
+    <Resource Include="Fotos\edit.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Fotos\search.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Новая папка\" />
-  </ItemGroup>
+
 
 </Project>

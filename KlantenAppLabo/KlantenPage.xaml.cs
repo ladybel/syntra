@@ -43,17 +43,17 @@ namespace KlantenAppWPF
             InitializeComponent();
             
 
-            DataContext = ViewM;
+           //DataContext = ViewM;
 
 
         }
 
-
+        
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            ViewM.deleteKlant(ViewM.CurrentKlant);
+           /* ViewM.deleteKlant(ViewM.CurrentKlant);
 
-            //KlantenGrid.Items.Refresh();
+            KlantenGrid.Items.Refresh();*/
 
 
         }
@@ -61,7 +61,7 @@ namespace KlantenAppWPF
         private void ExportButton_Click(object sender, RoutedEventArgs e)
         {
 
-            string ContextKL = ViewM.KlantenLijst?.Export();
+            //tring ContextKL = ViewM.KlantenLijst?.Export();
 
 
 
@@ -71,7 +71,7 @@ namespace KlantenAppWPF
             };
             if (saveDlg.ShowDialog() == true)
             {
-                ViewM.ExportToFile(saveDlg.FileName, ContextKL);
+                //ViewM.ExportToFile(saveDlg.FileName, ContextKL);
             }
 
 
@@ -80,14 +80,14 @@ namespace KlantenAppWPF
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            int index = ViewM.getVolgendeKlantID();
+            /*int index = ViewM.getVolgendeKlantID();
             Klant NewKlant = new Klant(index, ViewM.CurrentNaam, ViewM.CurrentAdres, ViewM.CurrentGebDatum);
             ViewM.addKlant(NewKlant);
             ViewM.UpdateKlantenColl();
             if (KlantenGrid.Items.SourceCollection == null)
             {
 
-            }
+            }*/
         }
 
         private void SearchButton_Click(object sender, RoutedEventArgs e)
@@ -97,7 +97,7 @@ namespace KlantenAppWPF
                  .FirstOrDefault(r => r.IsChecked.HasValue && r.IsChecked.Value);
             if (checkedValue != null)
             {
-                switch (checkedValue.Name)
+                /*switch (checkedValue.Name)
                 {
                     case "AlleKlanten":
                         ViewM.ToonAlleKlanten();
@@ -108,13 +108,13 @@ namespace KlantenAppWPF
                     case "ZoekKlanten":
                         ViewM.ToonKlantZoekRes();
                         break;
-                }
+                }*/
             }
 
 
         }
 
-
+        
     }
 }
 
