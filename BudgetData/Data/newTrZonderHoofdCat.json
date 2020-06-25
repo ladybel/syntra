@@ -1,0 +1,38 @@
+[
+  {
+    "tr_id": 1004,
+    "tr_datum": "2020-06-15T00:00:00+02:00",
+    "SubCat": {
+      "ID": 701,
+      "Naam": "Maskers"
+    },
+    "Comment": "Katoen",
+    "Debet": 10,
+    "Credit": 0,
+    "DatumString": "15/06/2020"
+  },
+  {
+    "tr_id": 1005,
+    "tr_datum": "2020-06-15T00:00:00+02:00",
+    "SubCat": {
+      "ID": 402,
+      "Naam": "Cultuur"
+    },
+    "Comment": "Concert",
+    "Debet": 10,
+    "Credit": 0,
+    "DatumString": "15/06/2020"
+  },
+  {
+    "tr_id": 1006,
+    "tr_datum": "2020-06-15T00:00:00+02:00",
+    "SubCat": {
+      "ID": 102,
+      "Naam": "Dividenden"
+    },
+    "Comment": "Aandelen",
+    "Debet": 0,
+    "Credit": 120,
+    "DatumString": "15/06/2020"
+  }
+]

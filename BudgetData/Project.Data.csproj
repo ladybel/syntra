@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <None Remove="Data\HoofdCategories.json" />
+    <None Remove="Data\testHoofdCat.json" />
+    <None Remove="Data\TestSubCat.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\HoofdCategories.json" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Data\new.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\new.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\trans.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\trans.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\categ.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\categ.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\testHoofdCat.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\TestSubCat.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\newHoofdCateg.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\newHoofdCateg.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\newSubCateg.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\newSubCateg.json" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <None Remove="Data\newTrMetHoofdcat.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\newTrMetHoofdcat.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Data\newTrZonderHoofdCat.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\newTrZonderHoofdCat.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Tools\Tools.csproj" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Compile Update="Models\HoofdCategorieLijst.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+
+
+</Project>

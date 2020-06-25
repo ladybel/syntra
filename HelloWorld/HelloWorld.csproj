@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Horse.png" />
+    <None Remove="ls2-drm.jpg" />
+    <None Remove="thumbs-up-animated-29.gif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Horse.png" />
+    <Resource Include="ls2-drm.jpg" />
+    <Resource Include="thumbs-up-animated-29.gif" />
+  </ItemGroup>
+
+</Project>

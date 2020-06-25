@@ -1,0 +1,122 @@
+[
+  {
+    "tr_id": 1001,
+    "tr_datum": "2020-06-16T15:17:40.8181886+02:00",
+    "SubCat": {
+      "ID": 101,
+      "Naam": "Salarissen"
+    },
+    "HoofdCat": {
+      "hc_naam": "Inkomsten",
+      "hc_id": 100,
+      "SubCats": [
+        {
+          "ID": 101,
+          "Naam": "Salarissen"
+        },
+        {
+          "ID": 102,
+          "Naam": "Dividenden"
+        },
+        {
+          "ID": 103,
+          "Naam": "Andere inkomsten"
+        }
+      ]
+    },
+    "Comment": "Loon",
+    "Debet": 0,
+    "Credit": 1550.25,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1002,
+    "tr_datum": "2020-06-16T15:17:40.8232559+02:00",
+    "SubCat": {
+      "ID": 201,
+      "Naam": "Vaste Kost Woning"
+    },
+    "HoofdCat": {
+      "hc_naam": "Woning",
+      "hc_id": 200,
+      "SubCats": [
+        {
+          "ID": 201,
+          "Naam": "Vaste Kost Woning"
+        },
+        {
+          "ID": 202,
+          "Naam": "Onderhoud woning"
+        },
+        {
+          "ID": 203,
+          "Naam": "Inrichting woning"
+        }
+      ]
+    },
+    "Comment": "Huur",
+    "Debet": 469,
+    "Credit": 0,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1003,
+    "tr_datum": "2020-06-16T15:17:40.8232959+02:00",
+    "SubCat": {
+      "ID": 303,
+      "Naam": "Nutsvoorzieningen"
+    },
+    "HoofdCat": {
+      "hc_naam": "Onderhoud",
+      "hc_id": 300,
+      "SubCats": [
+        {
+          "ID": 301,
+          "Naam": "Voeding"
+        },
+        {
+          "ID": 302,
+          "Naam": "Kleding"
+        },
+        {
+          "ID": 303,
+          "Naam": "Nutsvoorzieningen"
+        }
+      ]
+    },
+    "Comment": "Electriciteit",
+    "Debet": 0,
+    "Credit": 40.5,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1004,
+    "tr_datum": "2020-06-16T15:18:17.2759513+02:00",
+    "SubCat": {
+      "ID": 303,
+      "Naam": "Nutsvoorzieningen"
+    },
+    "HoofdCat": {
+      "hc_naam": "Onderhoud",
+      "hc_id": 300,
+      "SubCats": [
+        {
+          "ID": 301,
+          "Naam": "Voeding"
+        },
+        {
+          "ID": 302,
+          "Naam": "Kleding"
+        },
+        {
+          "ID": 303,
+          "Naam": "Nutsvoorzieningen"
+        }
+      ]
+    },
+    "Comment": "Internet",
+    "Debet": 0,
+    "Credit": 27.8,
+    "DatumString": "16/06/2020"
+  }
+]

@@ -1,0 +1,120 @@
+[
+  {
+    "hc_naam": "Inkomsten",
+    "hc_id": 100,
+    "SubCats": [
+      {
+        "ID": 101,
+        "Naam": "Salarissen"
+      },
+      {
+        "ID": 102,
+        "Naam": "Dividenden"
+      },
+      {
+        "ID": 103,
+        "Naam": "Andere inkomsten"
+      }
+    ]
+  },
+  {
+    "hc_naam": "Woning",
+    "hc_id": 200,
+    "SubCats": [
+      {
+        "ID": 201,
+        "Naam": "Vaste Kost Woning"
+      },
+      {
+        "ID": 202,
+        "Naam": "Onderhoud woning"
+      },
+      {
+        "ID": 203,
+        "Naam": "Inrichting woning"
+      }
+    ]
+  },
+  {
+    "hc_naam": "Onderhoud",
+    "hc_id": 300,
+    "SubCats": [
+      {
+        "ID": 301,
+        "Naam": "Voeding"
+      },
+      {
+        "ID": 302,
+        "Naam": "Kleding"
+      },
+      {
+        "ID": 303,
+        "Naam": "Nutsvoorzieningen"
+      }
+    ]
+  },
+  {
+    "hc_naam": "VrijeTijd",
+    "hc_id": 400,
+    "SubCats": [
+      {
+        "ID": 401,
+        "Naam": "Hobby/Sport"
+      },
+      {
+        "ID": 402,
+        "Naam": "Cultuur"
+      },
+      {
+        "ID": 403,
+        "Naam": "Opleiding"
+      }
+    ]
+  },
+  {
+    "hc_naam": "Vervoer",
+    "hc_id": 500,
+    "SubCats": [
+      {
+        "ID": 501,
+        "Naam": "Voertuig"
+      },
+      {
+        "ID": 502,
+        "Naam": "Brandstof"
+      },
+      {
+        "ID": 503,
+        "Naam": "Onderhoud voertuig"
+      }
+    ]
+  },
+  {
+    "hc_naam": "Verzekering",
+    "hc_id": 600,
+    "SubCats": [
+      {
+        "ID": 601,
+        "Naam": "Aanspakelijkheid"
+      },
+      {
+        "ID": 602,
+        "Naam": "Brand"
+      },
+      {
+        "ID": 603,
+        "Naam": "Ziekte"
+      }
+    ]
+  },
+  {
+    "hc_naam": "Corona",
+    "hc_id": 700,
+    "SubCats": [
+      {
+        "ID": 701,
+        "Naam": "Maskers"
+      }
+    ]
+  }
+]

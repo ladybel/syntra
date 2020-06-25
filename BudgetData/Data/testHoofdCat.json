@@ -1,0 +1,26 @@
+[
+  {
+    "hc_naam": "Inkomsten",
+    "hc_id": 100
+  },
+  {
+    "hc_naam": "Woning",
+    "hc_id": 200
+  },
+  {
+    "hc_naam": "Onderhoud",
+    "hc_id": 300
+  },
+  {
+    "hc_naam": "VrijeTijd",
+    "hc_id": 400
+  },
+  {
+    "hc_naam": "Vervoer",
+    "hc_id": 500
+  },
+  {
+    "hc_naam": "Verzekering",
+    "hc_id": 600
+  }
+]

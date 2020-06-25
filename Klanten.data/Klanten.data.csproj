@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+
+
+
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+</PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Data\klanten.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\klanten.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Data\boekingen.json" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Data\boekingen.json" />
+  </ItemGroup>
+  <ItemGroup>
+    
+    <PackageReference Include="DevExpress.Xpo" Version="20.1.4" />
+  </ItemGroup>
+
+
+<ItemGroup>
+  <ProjectReference Include="..\Tools\Tools.csproj" />
+</ItemGroup>
+
+
+<ItemGroup>
+  <Compile Update="Models\KlantenLijst.cs">
+    <SubType>Code</SubType>
+  </Compile>
+</ItemGroup>
+  <ItemGroup>
+    <Compile Update="Models\BookingLijst.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+
+</Project>

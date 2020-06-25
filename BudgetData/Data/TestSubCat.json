@@ -1,0 +1,74 @@
+[
+  {
+    "sc_id": 101,
+    "sc_naam": "Salarissen"
+  },
+  {
+    "sc_id": 102,
+    "sc_naam": "Dividenden"
+  },
+  {
+    "sc_id": 103,
+    "sc_naam": "Andere inkomsten"
+  },
+  {
+    "sc_id": 201,
+    "sc_naam": "Vaste Kost Woning"
+  },
+  {
+    "sc_id": 202,
+    "sc_naam": "Onderhoud woning"
+  },
+  {
+    "sc_id": 203,
+    "sc_naam": "Inrichting woning"
+  },
+  {
+    "sc_id": 301,
+    "sc_naam": "Voeding"
+  },
+  {
+    "sc_id": 302,
+    "sc_naam": "Kleding"
+  },
+  {
+    "sc_id": 303,
+    "sc_naam": "Nutsvoorzieningen"
+  },
+  {
+    "sc_id": 401,
+    "sc_naam": "Hobby/Sport"
+  },
+  {
+    "sc_id": 402,
+    "sc_naam": "Cultuur"
+  },
+  {
+    "sc_id": 403,
+    "sc_naam": "Opleiding"
+  },
+  {
+    "sc_id": 501,
+    "sc_naam": "Voertuig"
+  },
+  {
+    "sc_id": 502,
+    "sc_naam": "Brandstof"
+  },
+  {
+    "sc_id": 503,
+    "sc_naam": "Onderhoud voertuig"
+  },
+  {
+    "sc_id": 601,
+    "sc_naam": "Aanspakelijkheid"
+  },
+  {
+    "sc_id": 602,
+    "sc_naam": "Brand"
+  },
+  {
+    "sc_id": 603,
+    "sc_naam": "Ziekte"
+  }
+]

@@ -1,0 +1,82 @@
+[
+  {
+    "tr_id": 1001,
+    "tr_datum": "2020-06-16T15:17:40.8181886+02:00",
+    "HoofdCat": {
+      "hc_naam": "Inkomsten",
+      "hc_id": 100
+    },
+    "SubCat": {
+      "sc_id": 101,
+      "sc_naam": "Salarissen"
+    },
+    "Comment": "Loon",
+    "Debet": 0,
+    "Credit": 1550.25,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1002,
+    "tr_datum": "2020-06-16T15:17:40.8232559+02:00",
+    "HoofdCat": {
+      "hc_naam": "Woning",
+      "hc_id": 200
+    },
+    "SubCat": {
+      "sc_id": 201,
+      "sc_naam": "Vaste Kost Woning"
+    },
+    "Comment": "Huur",
+    "Debet": 469,
+    "Credit": 0,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1003,
+    "tr_datum": "2020-06-16T15:17:40.8232959+02:00",
+    "HoofdCat": {
+      "hc_naam": "Onderhoud",
+      "hc_id": 300
+    },
+    "SubCat": {
+      "sc_id": 303,
+      "sc_naam": "Nutsvoorzieningen"
+    },
+    "Comment": "Electriciteit",
+    "Debet": 0,
+    "Credit": 40.5,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1004,
+    "tr_datum": "2020-06-16T15:18:17.2759513+02:00",
+    "HoofdCat": {
+      "hc_naam": "Onderhoud",
+      "hc_id": 300
+    },
+    "SubCat": {
+      "sc_id": 303,
+      "sc_naam": "Nutsvoorzieningen"
+    },
+    "Comment": "Internet",
+    "Debet": 0,
+    "Credit": 27.8,
+    "DatumString": "16/06/2020"
+  },
+  {
+    "tr_id": 1005,
+    "tr_datum": "2020-06-15T00:00:00",
+    "HoofdCat": {
+      "hc_naam": "Vervoer",
+      "hc_id": 500
+    },
+    "SubCat": {
+      "sc_id": 502,
+      "sc_naam": "Brandstof"
+    },
+    "Comment": "Benzine",
+    "Debet": 50,
+    "Credit": 0,
+    "DatumString": "15/06/2020"
+  }
+]

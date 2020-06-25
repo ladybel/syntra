@@ -1,0 +1,14 @@
+[
+  {
+    "kl_naam": "Maria",
+    "kl_id": 99,
+    "kl_adres": "Tomveldstraat 8,3000 Leuven",
+    "kl_gebdatum": "1980-07-08T15:17:40.8181886+02:00"
+  },
+  {
+    "kl_naam": "David",
+    "kl_id": 100,
+    "kl_adres": "Ternat",
+    "kl_gebdatum": "1978-06-16T15:17:40.8181886+02:00"
+  }
+]
