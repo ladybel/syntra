@@ -5,6 +5,7 @@
     "voornaam": "Maria",
     "telefoon": "0493-48-43-43",
     "adres": "Tomveldstraat 8, 3000 Leuven",
+    "categorie": "Fysieke contactpersoon",
     "comment": "goede meisje"
   },
   {
@@ -27,6 +28,7 @@
     ],
     "telefoon": "0493-25-25-25",
     "adres": "Tiensestraat 8, 3000 Leuven",
+    "categorie": "Winkel of bedrijf",
     "comment": "goede bedrijf"
   }
 ]

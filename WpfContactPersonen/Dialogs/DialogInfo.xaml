@@ -1,0 +1,172 @@
+﻿<Window x:Class="WpfContactPersonen.Dialogs.DialogInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfContactPersonen.Dialogs"
+        mc:Ignorable="d"
+        Title="DialogInfo" MaxHeight="700" Width="450">
+
+    <!--  <ContentControl DataContext="{Binding CurrentCP}" Content="{Binding}">
+    <Window.Resources>
+            <DataTemplate DataType="x:Type class:FysiekeContactpersoon">
+
+                <StackPanel Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Naam"   HorizontalAlignment="Center" VerticalAlignment="Center" Width="114" Height="26"  />
+                    <TextBox x:Name="ContactNaam"  HorizontalAlignment="Center"   TextWrapping="Wrap" Text="{Binding Naam}" VerticalAlignment="Center" Width="218" Height="22"/>
+                   
+                    <Label Content="Voornaam"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="114" Height="26" />
+                    <TextBox x:Name="ContactVoornaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding Voornaam, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Adres" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="114" Height="26" />
+                    <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Adres, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Telefoon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="114" Height="26" />
+
+                    <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4"  TextWrapping="Wrap" Text="{Binding CurrentCP.Telefoon, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="114" Height="26" />
+
+                    <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4"  TextWrapping="Wrap" Text="{Binding CurrentCP.Comment, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                
+                </StackPanel>
+
+            </DataTemplate>
+            <DataTemplate DataType="x:Type class:WinkelOfBedrijf">
+                <StackPanel Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Naam"   HorizontalAlignment="Center"  VerticalAlignment="Center" Width="114" Height="26" />
+                    <TextBox x:Name="ContactNaam"  HorizontalAlignment="Center"   TextWrapping="Wrap" Text="{Binding Naam}" VerticalAlignment="Center" Width="218" Height="22"/>
+                    <Label Content="Adres" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="114" Height="26" />
+                    <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding Telefoon, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Telefoon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="114" Height="26" />
+                    <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4"  TextWrapping="Wrap" Text="{Binding CurrentCP.Adres,RelativeSource={RelativeSource TemplatedParent},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Openingsuren" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="114" Height="26" />
+                    <ListBox x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="5"   ItemsSource="{Binding CurrentCP.Openingsuren, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Sluitingsdagen" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="114" Height="26" />
+                    <ListBox x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="6"  ItemsSource="{Binding CurrentCP.SluitingsDagen,  RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Width="114" Height="26" />
+
+                    <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="7"  TextWrapping="Wrap" Text="{Binding CurrentCP.Comment, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                </StackPanel>
+
+            </DataTemplate>
+        </Window.Resources>
+
+                
+                <Style TargetType="ContentControl">
+                    <Setter Property="Template"
+                        Value="{StaticResource FysiekePersoonTemplate}"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=CurrentCP.Categorie}"
+                                 Value="Winkel of bedrijf">
+                            <Setter Property="Template"
+                                Value="{StaticResource WinkelOfBedrijfTemplate}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>-->
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="157*"/>
+            <ColumnDefinition Width="266*"/>
+            <ColumnDefinition Width="16.813"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="400*"/>
+            <RowDefinition Height="47.042"/>
+        </Grid.RowDefinitions>
+
+
+        <Button x:Name="OkButton" Grid.Column="2" HorizontalAlignment="Left" Margin="180,0,0,0" Grid.Row="3" VerticalAlignment="Center" Background="{x:Null}" Click="OkButton_Click" Height="40" Width="67"  >
+            <WrapPanel Orientation="Horizontal">
+                <!--<Image Source="/images/check.png"/>-->
+                <Label Foreground="AntiqueWhite" FontSize="12" FontWeight="Bold" Padding="5" Content="OK"/>
+            </WrapPanel>
+        </Button>
+         <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="2" Margin="0,0,0,36" Grid.RowSpan="2" Width="332">
+            <WrapPanel x:Name="id">
+                <Label Content="ID"  Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactID" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding ID,  Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22" IsReadOnly="True"/>
+            </WrapPanel>
+             
+             <WrapPanel x:Name="naam">
+                <Label Content="Naam"  Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactNaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Naam,  Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+            </WrapPanel>
+            <WrapPanel x:Name="voornaam" Visibility="Collapsed">
+            <Label Content="Voornaam" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+            <TextBox x:Name="ContactVoornaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding Voornaam, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                   <!-- <WrapPanel.Style>
+                    <Style TargetType="WrapPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Categorie, ElementName=Title}"
+                                 Value="Fysieke contactpersoon">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                           
+                        </Style.Triggers>
+                    </Style>
+                </WrapPanel.Style>  H E T   W E R K T    N I E T ! -->  
+            </WrapPanel>
+            <WrapPanel x:Name="adres">
+                <Label Content="Adres" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Adres, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+            </WrapPanel>
+
+            <WrapPanel x:Name="telefoon">
+                <Label Content="Telefoon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Telefoon, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+            </WrapPanel>
+            <WrapPanel x:Name="openingsuren" Visibility="Collapsed">
+                <Label Content="Openingsuren" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <ListBox x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"   ItemsSource="{Binding Openingsuren,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100"/>
+                <!--<WrapPanel.Style>
+                    <Style TargetType="WrapPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=    Categorie}"
+                                 Value="Winkel of bedrijf">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </WrapPanel.Style>-->
+
+            </WrapPanel>
+            <WrapPanel x:Name="sluitingsdagen" Visibility="Collapsed">
+                <Label Content="Sluitingsdagen" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <ListBox x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  ItemsSource="{Binding SluitingsDagen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100"/>
+               <!-- <WrapPanel.Style> het werkt niet
+                    <Style TargetType="WrapPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Categorie}"
+                                 Value="Winkel of bedrijf">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </WrapPanel.Style>-->
+                
+            </WrapPanel>
+            <WrapPanel x:Name="comment">
+                <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+
+                <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Comment, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="50"/>
+            </WrapPanel>
+        </StackPanel>
+
+    </Grid>
+
+
+
+</Window>

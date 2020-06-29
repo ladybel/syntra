@@ -1,0 +1,30 @@
+[{
+  "voornaam": "Maria",
+  "id": 99,
+  "naam": "Borbachova",
+  "telefoon": "0493-48-43-43",
+  "adres": "Tomveldstraat 8, 3000 Leuven",
+  "categorie": "Fysieke contactpersoon",
+  "comment": "blabla"
+},{
+  "openingsuren": [
+    "Maandag tot vrijdag: van 9 tot 18",
+    "Zaterdag: van 9 tot 17",
+    "Zondag: gesloten"
+  ],
+  "sluitingsdagen": [
+    "1 januari",
+    "1 paasdag",
+    "Pinksteren",
+    "Hemelvaart",
+    "OLVHemelvaart",
+    "21 Juli",
+    "1 en 2 Kerstdagen"
+  ],
+  "id": 100,
+  "naam": "C#.net BVBA",
+  "telefoon": "0493-25-25-25",
+  "adres": "Tiensestraat 8, 3000 Leuven",
+  "categorie": "Winkel of bedrijf",
+  "comment": "goede bedrijf"
+}]

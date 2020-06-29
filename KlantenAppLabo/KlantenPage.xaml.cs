@@ -28,16 +28,16 @@ namespace KlantenAppWPF
     public partial class KlantenPage : Page
     {
 
+       
 
-       /* MainViewModel ViewM = MainWindow.ViewM;
+        //MainViewModel ViewM = System.Windows.Application.Current.MainWindow.ViewM;
+        /* public MainViewModel ViewM
+         {
+             get { _viewM ??= new MainViewModel(); return _viewM; }
+             set => _viewM = value;
+         }*/
 
-        public MainViewModel ViewM
-        {
-            get { _viewM ??= new MainViewModel(); return _viewM; }
-            set => _viewM = value;
-        }*/
-        
-        
+
         public KlantenPage()
         {
             InitializeComponent();

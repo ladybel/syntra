@@ -7,9 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataTemplateSelector.cs" />
+    <Compile Remove="Tools\ResourceExtensions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Fotos\delete.png" />
     <None Remove="Fotos\delete1.png" />
+    <None Remove="Fotos\delete2.png" />
+    <None Remove="Fotos\delete3.png" />
+    <None Remove="Fotos\delete4.png" />
     <None Remove="Fotos\edit.png" />
+    <None Remove="Fotos\search1.png" />
+    <None Remove="Fotos\info.png" />
+    <None Remove="Fotos\add.png" />
+    <None Remove="Fotos\yes.png" />
+    <None Remove="Fotos\no.png" />
+    <None Remove="Fotos\add1.png" />
+    <None Remove="Fotos\uitroepteken.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +39,17 @@
   <ItemGroup>
     <Resource Include="Fotos\delete.png" />
     <Resource Include="Fotos\delete1.png" />
+    <Resource Include="Fotos\delete2.png" />
+    <Resource Include="Fotos\delete3.png" />
+    <Resource Include="Fotos\delete4.png" />
     <Resource Include="Fotos\edit.png" />
+    <Resource Include="Fotos\search1.png" />
+    <Resource Include="Fotos\info.png" />
+    <Resource Include="Fotos\add.png" />
+    <Resource Include="Fotos\yes.png" />
+    <Resource Include="Fotos\no.png" />
+    <Resource Include="Fotos\add1.png" />
+    <Resource Include="Fotos\uitroepteken.png" />
   </ItemGroup>
 
 
