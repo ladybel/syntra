@@ -30,7 +30,7 @@ namespace WpfContactPersonen.Dialogs
             ContactPersoonViewModel _viewModel = null;
             public ContactPersoonViewModel ViewModel { get => _viewModel; set => _viewModel = value; }
 
-
+            
 
         public DialogInfo(ContactPersoonViewModel vm)
         {
@@ -43,12 +43,14 @@ namespace WpfContactPersonen.Dialogs
                 voornaam.Visibility = Visibility.Visible;
                 openingsuren.Visibility = Visibility.Collapsed;
                 sluitingsdagen.Visibility = Visibility.Collapsed;
+                FotoPanel.Visibility = Visibility.Visible;
             }
             else if (ViewModel.CurrentCP.Categorie == "Winkel of bedrijf")
             {
                 voornaam.Visibility = Visibility.Collapsed;
                 openingsuren.Visibility = Visibility.Visible;
                 sluitingsdagen.Visibility = Visibility.Visible;
+                FotoPanel.Visibility = Visibility.Collapsed;
             }
         }
         private void OkButton_Click(object sender, RoutedEventArgs e)
@@ -86,6 +88,30 @@ namespace WpfContactPersonen.Dialogs
             
         }
 
+        private void DeleteOpeningsuren_ButtonClick(object sender, RoutedEventArgs e)
+            {
+            if (ViewModel.CurrentCP.Categorie == "Winkel of bedrijf")
+            {
+
+                var currou = ViewModel.ContactOpeningsuren.Where(t => t== ViewModel.CurrOU).FirstOrDefault();                
+                ViewModel.ContactOpeningsuren.Remove(currou);
+                ViewModel.ResetOUColl();
+                ViewModel.UpdateGui();
+
+            }
+        }
+
+        private void DeleteSluitingsDagen_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.CurrentCP.Categorie == "Winkel of bedrijf")
+            {
+
+                var currsd = ViewModel.ContactSluitingsDagen.Where(t => t== ViewModel.CurrSD).FirstOrDefault();
+                ViewModel.ContactSluitingsDagen.Remove(currsd);
+                ViewModel.ResetSDColl();
+                ViewModel.UpdateGui();
+            }
+        }   
 
         /*private void LoadImgButton_Click(object sender, RoutedEventArgs e)
         {

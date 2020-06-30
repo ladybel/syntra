@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:WpfContactPersonen.Dialogs"
         mc:Ignorable="d"
         Title="DialogInfo" MaxHeight="700" Width="450">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Foreground" Value="Wheat" />
+            <Setter Property="Foreground" Value="DarkSlateGray" />
+        </Style>
+        
+    </Window.Resources>
 
     <!--  <ContentControl DataContext="{Binding CurrentCP}" Content="{Binding}">
     <Window.Resources>
@@ -58,9 +65,9 @@
         </Window.Resources>
 
                 
-                <Style TargetType="ContentControl">
-                    <Setter Property="Template"
-                        Value="{StaticResource FysiekePersoonTemplate}"/>
+                    <Style TargetType="ContentControl">
+                        <Setter Property="Template"
+                            Value="{StaticResource FysiekePersoonTemplate}"/>
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding Path=CurrentCP.Categorie}"
                                  Value="Winkel of bedrijf">
@@ -128,17 +135,33 @@
             </WrapPanel>
             <WrapPanel x:Name="openingsuren" Visibility="Collapsed">
                 <Label Content="Openingsuren" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="100" Height="26" />
-                <DataGrid x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"   ItemsSource="{Binding OpeningsurenColl,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100"/>
+                <DataGrid x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" AutoGenerateColumns="False" SelectionMode="Single" SelectedItem="{Binding CurrOU, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{Binding OpeningsurenColl,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="DeleteButton"  Height="20" Width="20" Foreground="White"  BorderBrush="White" Click="DeleteOpeningsuren_ButtonClick" >
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Fotos/delete.png" Stretch="Uniform"/>
+                                        </Button.Background>
+                                    </Button>
 
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTextColumn Header="Omschrijving" Binding ="{Binding Omschrijving, Mode= TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly= "False"/>
+                    </DataGrid.Columns>
+                </DataGrid>
             </WrapPanel>
             <WrapPanel x:Name="sluitingsdagen" Visibility="Collapsed">
                 <Label Content="Sluitingsdagen" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="100" Height="26" />
-                <DataGrid x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" AutoGenerateColumns="False" SelectionMode="Single"  ItemsSource="{Binding SluitingsDagenColl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100" >
+                <DataGrid x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" AutoGenerateColumns="False" SelectionMode="Single" SelectedItem="{Binding CurrSD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SluitingsDagenColl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100" >
                 <DataGrid.Columns>
                     <DataGridTemplateColumn>
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="DeleteButton"  Height="20" Width="20" Foreground="White"  BorderBrush="White" >
+                                <Button x:Name="DeleteButton"  Height="20" Width="20" Foreground="White"  BorderBrush="White" Click="DeleteSluitingsDagen_ButtonClick" >
                                     <Button.Background>
                                         <ImageBrush ImageSource="/Fotos/delete.png" Stretch="Uniform"/>
                                     </Button.Background>

@@ -89,6 +89,8 @@ namespace WpfContactPersonen.ViewModel
                 RaisePropertyChanged("Categories");
             }
         }
+        public Openingsuren CurrOU { get; set; }=null;
+        public SluitingsDagen CurrSD { get; set; } = null;
         public string CurrentCategorie { get; set; } ="";
         public string ZoekText { get; set; } = "";
         public Contactpersoon CurrentCP
@@ -248,7 +250,7 @@ namespace WpfContactPersonen.ViewModel
         }
 
         public void ResetSDColl()
-        {SluitingsDagenColl.Clear();
+        {   SluitingsDagenColl.Clear();
             foreach (var Item in ContactSluitingsDagen)
             {
                 SluitingsDagenColl.Add(Item);
@@ -263,6 +265,7 @@ namespace WpfContactPersonen.ViewModel
                CPCollectie.Add(Item);
             }
         }
+
         protected void RaisePropertyChanged([CallerMemberName] string property = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         internal void Import()
         {

@@ -13,7 +13,7 @@ namespace Syntra.Data.Models
 {
     public class ContactpersonenLijst
     {
-		public const string DataFile = "Contactpersonen.dat";
+		public const string DataFile  = "Contactpersonen.dat";
 		public string LastError { get; protected set; } = "";
 		public List<Contactpersoon> Members { get; set; } = new List<Contactpersoon>();
 		public int Count { get => Members?.Count > 0 ? Members.Count : 0; }
@@ -34,7 +34,7 @@ namespace Syntra.Data.Models
 				{
 					Directory.CreateDirectory(dir);
 				}
-				string dr = "C:\\Users\\maria\\Downloads\\Documents\\syntra\\Syntra Eindwerk\\ContactPersonen.Data\\Data";
+				string dr = "C:\\Users\\maria\\Downloads\\Documents\\syntra\\ExamenOefening\\ContactPersonen.Data\\Data";
 				return dr;
 			}
 		}
