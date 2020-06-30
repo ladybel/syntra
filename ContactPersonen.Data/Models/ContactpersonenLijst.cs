@@ -34,7 +34,7 @@ namespace Syntra.Data.Models
 				{
 					Directory.CreateDirectory(dir);
 				}
-				string dr = "C:\\Users\\maria\\Downloads\\Documents\\syntra\\ExamenOefening\\ContactPersonen.Data\\Data";
+				string dr = "C:\\Users\\maria\\Downloads\\Documents\\syntra\\Syntra Eindwerk\\ContactPersonen.Data\\Data";
 				return dr;
 			}
 		}
