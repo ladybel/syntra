@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <None Remove="Data\contactpersonen.json" />
+    <None Remove="Data\contactpersonen.dat" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Data\contactpersonen.json" />
+    <EmbeddedResource Include="Data\contactpersonen.dat" />
   </ItemGroup>
 
   <ItemGroup>

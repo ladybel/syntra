@@ -24,11 +24,73 @@ namespace WpfContactPersonen.ViewModel
         public ContactpersonenLijst _cpLijst = null;
         ObservableCollection<Contactpersoon> _cpCollectie = null;
         Contactpersoon _currentCP = null;
+        Contactpersoon _nieuwCP = null;
+        
+        string cat1 = "Fysieke contactpersoon";
+        string cat2="Winkel of bedrijf";
+        public string CurrentOU = null;
+        public string CurrentSD = null;
+        List<string> _categories = new List<string>();
+        public List<Contactpersoon> SelectedForDeleting = new List<Contactpersoon>();
+        private List<Openingsuren> _contactOU;
+        private List<SluitingsDagen> _contactSD;
+
+
+        
+        ObservableCollection<string> _categoriesColl = null;
+        ObservableCollection<Openingsuren> _openingsurenColl = null;
+        ObservableCollection<SluitingsDagen> _sluitingsdagenColl = null;
+        ObservableCollection<Contactpersoon> _sfdColl = null;
+
 
 
         #endregion Fields
         #region Properties
-
+        public List<Openingsuren> ContactOpeningsuren
+        {
+            get
+            {
+                _contactOU ??= new List<Openingsuren>();
+                return _contactOU;
+            }
+            set
+            {   _contactOU = value;
+                RaisePropertyChanged("ContactOpeningsuren");
+            }
+        }
+        public List<SluitingsDagen> ContactSluitingsDagen
+        {
+            get
+            {
+                _contactSD ??= new List<SluitingsDagen>();
+                return _contactSD;
+            }
+            set
+            {
+                _contactSD = value;
+                RaisePropertyChanged("ContactSluitingsDagen");
+            }
+        }
+        public BitmapImage SelectedImage { get => selectedImage; set { selectedImage = value; RaisePropertyChanged(); } }
+        public List<string> Categories
+        {
+            get
+            {
+                if(_categories.Count == 0)
+                {
+                    _categories.Add(cat1);
+                    _categories.Add(cat2);
+                }
+                return _categories;
+            }
+            set
+            {
+                _categories = value;
+                RaisePropertyChanged("Categories");
+            }
+        }
+        public string CurrentCategorie { get; set; } ="";
+        public string ZoekText { get; set; } = "";
         public Contactpersoon CurrentCP
         {
             get => _currentCP;
@@ -36,6 +98,16 @@ namespace WpfContactPersonen.ViewModel
             set
             {
                 _currentCP = value;
+                RaisePropertyChanged("Contactpersoon");
+            }
+        }
+        public Contactpersoon NieuwCP
+        {
+            get => _nieuwCP;
+
+            set
+            {
+                _nieuwCP = value;
                 RaisePropertyChanged("Contactpersoon");
             }
         }
@@ -52,6 +124,58 @@ namespace WpfContactPersonen.ViewModel
                 RaisePropertyChanged("CPLijst");
             }
         }
+        public ObservableCollection<string> CategoriesColl
+        {
+            get
+            {
+                _categoriesColl = new ObservableCollection<string>(Categories);
+                return _categoriesColl;
+            }
+            set => _categoriesColl = value;
+        }
+        public ObservableCollection<Contactpersoon> SelectedForDelColl
+        {
+            get
+            {
+                _sfdColl = new ObservableCollection<Contactpersoon>(SelectedForDeleting);
+                return _sfdColl;
+            }
+            set => _sfdColl = value;
+        }
+        public ObservableCollection<Openingsuren> OpeningsurenColl
+        {
+            get
+            {
+                if (CurrentCP != null&& CurrentCP.Categorie=="Winkel of bedrijf") { 
+                    //WinkelOfBedrijf currCP = (WinkelOfBedrijf)CurrentCP;
+                    _openingsurenColl = new ObservableCollection<Openingsuren>(ContactOpeningsuren);
+                    /*foreach(var ou in currCP.Openingsuren) 
+                    {
+                    _openingsurenColl.Add(new Openingsuren(ou));
+                    }    */
+                }
+                return _openingsurenColl;
+            }
+            set => _openingsurenColl = value;
+        }
+        public ObservableCollection<SluitingsDagen> SluitingsDagenColl
+        {
+            get
+            {
+                if (CurrentCP != null&& CurrentCP.Categorie == "Winkel of bedrijf")
+                {
+                   // WinkelOfBedrijf currCP = (WinkelOfBedrijf)CurrentCP;
+                    _sluitingsdagenColl = new ObservableCollection<SluitingsDagen>(ContactSluitingsDagen);
+                    /*foreach (var sd in currCP.SluitingsDagen)
+                    {
+                        _sluitingsdagenColl.Add(sd);
+                    }*/
+                }
+               
+                return _sluitingsdagenColl;
+            }
+            set => _sluitingsdagenColl = value;
+        }
         public ObservableCollection<Contactpersoon> CPCollectie
         {
             get
@@ -60,11 +184,85 @@ namespace WpfContactPersonen.ViewModel
             }
             set => CPLijst.Members = value.Cast<Contactpersoon>().ToList();
         }
-
+        private BitmapImage selectedImage = null;
+       
 
         #endregion Properties
         #region Methods
+        public int GetNextIndex()
+        {
+            int id= CPLijst.Members.Max(t=>t.ID)+1;
+            return id;
+        }
+        internal void ToonAlleContactPersonen()
+        {
+            ResetCPColl();
+        }
 
+
+        internal void ToonPerCategorie()
+        {
+            if (CurrentCategorie != null &CurrentCategorie != "")
+            {
+
+                List<Contactpersoon> result = CPLijst.Members.FindAll(t => t.Categorie == CurrentCategorie);
+
+                if (result.Count > 0)
+                {
+                    CPCollectie.Clear();
+                    foreach (var cp in result)
+                    {
+                        CPCollectie.Add(cp);
+                    }
+                }
+            }
+
+            else ResetCPColl();
+        }
+        internal void ToonZoekRes()
+        {
+            if (ZoekText != null)
+            {
+
+                List<Contactpersoon> result = CPLijst.Members.FindAll(t => (t.Naam.ToLower().Contains(ZoekText.ToLower()) || t.Categorie.Contains(ZoekText) || t.Telefoon.Contains(ZoekText))).ToList();
+
+                if (result.Count > 0)
+                {
+                    CPCollectie.Clear();
+                    foreach (var c in result)
+                    {
+                       CPCollectie.Add(c);
+                    }
+                }
+            }
+
+        }
+
+        public void ResetOUColl()
+        {
+            OpeningsurenColl.Clear();
+            foreach (var Item in ContactOpeningsuren)
+            {
+                OpeningsurenColl.Add(Item);
+            }
+        }
+
+        public void ResetSDColl()
+        {SluitingsDagenColl.Clear();
+            foreach (var Item in ContactSluitingsDagen)
+            {
+                SluitingsDagenColl.Add(Item);
+            }
+        }
+
+        public void ResetCPColl()
+        {
+            CPCollectie.Clear();
+            foreach(var Item in CPLijst.Members)
+            {
+               CPCollectie.Add(Item);
+            }
+        }
         protected void RaisePropertyChanged([CallerMemberName] string property = "") => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         internal void Import()
         {
@@ -72,7 +270,9 @@ namespace WpfContactPersonen.ViewModel
             CPLijst.Import();
         
         }
+        public void UpdateGui() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(""));
 
+        
         #endregion Methods
 
     }

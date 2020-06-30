@@ -14,20 +14,21 @@ namespace Syntra.Data.Models
         public string Telefoon { get; set; }
         [JsonPropertyName("adres")]
         public string Adres { get; set; }
-       /* [JsonPropertyName("extra")]
-        public ExtraInfo Extra { get; set; }*/
-        /*[JsonPropertyName("categorie")]
-        public int Categorie { get; set; }*/
+      
+        [JsonPropertyName("categorie")]
+        public string Categorie { get; set; }
 
         [JsonPropertyName("comment")]
         public string Comment { get; set; }
 
         public Contactpersoon() { }
-         public Contactpersoon(string naam, string telefoon, string adres, string comment)
+         public Contactpersoon(int id, string naam, string telefoon, string adres, string categorie, string comment)
          {
+             ID = ID;
              Naam = naam;
              Telefoon = telefoon;
              Adres = adres;
+             Categorie = categorie;
              Comment = comment;
          }
         

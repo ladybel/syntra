@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 
 namespace Syntra.Data.Models
 {
-    class WinkelOfBedrijf : Contactpersoon
+   public class WinkelOfBedrijf : Contactpersoon
     {
 
         [JsonPropertyName("openingsuren")]
@@ -15,9 +15,11 @@ namespace Syntra.Data.Models
         public List<string> SluitingsDagen { get; set; }
 
         public WinkelOfBedrijf() { }
-        public WinkelOfBedrijf(string naam, List<string> openingsuren, List<string> sluitingsdagen, string telefoon, string adres, string comment)
+        public WinkelOfBedrijf(int id, string naam, string categorie, string telefoon, string adres, List<string> openingsuren, List<string> sluitingsdagen, string comment)
         {
+            ID=id;
             Naam = naam;
+            Categorie = categorie;
             Openingsuren = openingsuren;
             SluitingsDagen = sluitingsdagen;
             Telefoon = telefoon;

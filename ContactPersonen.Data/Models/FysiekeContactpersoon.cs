@@ -28,13 +28,14 @@ namespace Syntra.Data.Models
         */
 
         public FysiekeContactpersoon() { }
-         public FysiekeContactpersoon(string naam, string voornaam,string telefoon, string adres, int categorie, string comment)
+         public FysiekeContactpersoon(int id,string naam, string voornaam,string telefoon, string adres, string categorie, string comment)
          {
+             ID = id;
              Naam = naam;
              Voornaam = voornaam;
              Telefoon = telefoon;
              Adres = adres;
-             
+             Categorie = categorie;
              Comment = comment;
          }
         

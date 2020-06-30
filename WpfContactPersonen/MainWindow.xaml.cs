@@ -12,7 +12,13 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfContactPersonen.Dialogs;
 using WpfContactPersonen.ViewModel;
+using Syntra.Data.Models;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.IO;
+using Microsoft.Win32;      
 
 namespace WpfContactPersonen
 {
@@ -23,6 +29,7 @@ namespace WpfContactPersonen
     {
 
         ContactPersoonViewModel _viewmod = null;
+        //public Contactpersoon CurrentCP;
         public ContactPersoonViewModel ViewMod
         {
             get { _viewmod ??= new ContactPersoonViewModel(); return _viewmod; }
@@ -30,7 +37,7 @@ namespace WpfContactPersonen
         }
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();  
             ViewMod.Import();
             DataContext = ViewMod;
 
@@ -38,7 +45,75 @@ namespace WpfContactPersonen
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
+            //List<Contactpersoon> SelectedForDeleting = new List<Contactpersoon>();
 
+            foreach (Contactpersoon item in ContactpersonenGrid.ItemsSource)
+            {
+                if (((CheckBox)CheckForDelete.GetCellContent(item)).IsChecked == true)
+                {
+                    ViewMod.SelectedForDeleting.Add(item);
+                }
+            }
+            if (ViewMod.SelectedForDeleting.Count > 0) { 
+            Delete del = new Delete(ViewMod) { Owner = this };
+            if (del.ShowDialog() == true) { }}
+
+        }
+
+        private void InfoButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewMod.CurrentCP.Categorie == "Winkel of bedrijf")
+            {
+                ViewMod.ContactOpeningsuren.Clear();
+                ViewMod.ContactSluitingsDagen.Clear();
+                var currCP = (WinkelOfBedrijf)ViewMod.CurrentCP;
+
+                foreach (var item in currCP.Openingsuren)
+                {
+                    ViewMod.ContactOpeningsuren.Add(new Openingsuren(item));
+                }
+                
+                foreach (var item in currCP.SluitingsDagen)
+                {
+                    ViewMod.ContactSluitingsDagen.Add(new SluitingsDagen(item));
+                }
+            }
+
+            DialogInfo dlg = new DialogInfo(ViewMod) { Owner = this };
+            if (dlg.ShowDialog() == true) { }
+        }
+
+        private void NieuwButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewMod.NieuwCP = new Contactpersoon();
+            DialogAdd add = new DialogAdd(ViewMod) { Owner = this };
+            if (add.ShowDialog() == true) { }
+        }
+
+        private void Zoek(object sender, RoutedEventArgs e)
+        {
+            var checkedValue = panel.Children.OfType<RadioButton>().Where(r => r.IsChecked==true).FirstOrDefault();
+                
+            if (checkedValue != null)
+                {
+                switch (checkedValue.Name)
+                {
+                    case "ToonAllesRadioButton":
+                        ViewMod.ToonAlleContactPersonen();
+                        break;
+                    case "CategorieKeuzeRadioButton":
+                        ViewMod.ToonPerCategorie();
+                        break;
+                    case "ZoekRadioButton":
+                        ViewMod.ToonZoekRes();  
+                        break;
+                }
+            }
+        }
+
+        private void Export(object sender, RoutedEventArgs e)
+        {
+            ViewMod.CPLijst.SaveData();
         }
     }
 }

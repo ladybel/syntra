@@ -4,6 +4,98 @@
              xmlns:local="clr-namespace:WpfContactPersonen"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+         <!--  <ControlTemplate x:Key="FysiekePersoonTemplate" TargetType="{x:Type ContentControl}">
+                <WrapPanel Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label Content="Naam"  Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="114" Height="26"  />
+               
+                    <Label Content="Voornaam" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactVoornaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding vm.Voornaam, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Adres" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding vm.Adres, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Telefoon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="114" Height="26" />
+
+                <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4"  TextWrapping="Wrap" Text="{Binding CurrentCP.Telefoon, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                    <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="114" Height="26" />
+
+                <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4"  TextWrapping="Wrap" Text="{Binding CurrentCP.Comment, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+            </WrapPanel>
+           </ControlTemplate>
+           <ControlTemplate x:Key="WinkelOfBedrijfTemplate" TargetType="{x:Type ContentControl}">
+            <WrapPanel Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center">                
+                <Label Content="Naam"  Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactNaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Naam,  Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                <Label Content="Adres" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding Telefoon, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                <Label Content="Telefoon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="4" VerticalAlignment="Center" Width="114" Height="26" />
+                <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="4"  TextWrapping="Wrap" Text="{Binding CurrentCP.Adres,RelativeSource={RelativeSource TemplatedParent},  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                <Label Content="Openingsuren" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="114" Height="26" />
+                <ListBox x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="5"   ItemsSource="{Binding CurrentCP.Openingsuren, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                <Label Content="Sluitingsdagen" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="6" VerticalAlignment="Center" Width="114" Height="26" />
+                <ListBox x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="6"  ItemsSource="{Binding CurrentCP.SluitingsDagen,  RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+                <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="7" VerticalAlignment="Center" Width="114" Height="26" />
+
+                <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="7"  TextWrapping="Wrap" Text="{Binding CurrentCP.Comment, RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+
+            </WrapPanel>
+
+            </ControlTemplate>
+
+
+
+       -->
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="Background" Value="{x:Null}"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="Ivory"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="WrapPanel">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="RadioButton">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="Ivory"/>
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Background" Value="Ivory"/>
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Background" Value="Ivory"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Foreground" Value="Ivory"/>
+        </Style>
+        <Style TargetType="Window">
+            <Setter Property="Foreground" Value="Ivory"/>
+            <Setter Property="Background" Value="DarkSlateGray"/>
+        </Style>
+
     </Application.Resources>
 </Application>

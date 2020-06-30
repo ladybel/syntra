@@ -17,7 +17,8 @@ namespace Syntra.Data.Models
 		public string LastError { get; protected set; } = "";
 		public List<Contactpersoon> Members { get; set; } = new List<Contactpersoon>();
 		public int Count { get => Members?.Count > 0 ? Members.Count : 0; }
-		public string trans { get; set; }
+		//public string trans { get; set; }
+
 
 		public ContactpersonenLijst()
 		{
@@ -27,12 +28,14 @@ namespace Syntra.Data.Models
 		{
 			get
 			{
+				//aangepast om te testen, het mag terug naar de oorspronkelijke
 				string dir = $@"{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData).TrimEnd('\\')}\Syntra Eindwerk";
 				if (!Directory.Exists(dir))
 				{
 					Directory.CreateDirectory(dir);
 				}
-				return dir;
+				string dr = "C:\\Users\\maria\\Downloads\\Documents\\syntra\\ExamenOefening\\ContactPersonen.Data\\Data";
+				return dr;
 			}
 		}
 		public bool SaveData()
@@ -53,7 +56,8 @@ namespace Syntra.Data.Models
 
 		public bool Import()
         {
-			string data = GetType().GetEmbeddedResource("contactpersonen.json");
+			//string data = GetType().GetEmbeddedResource("contactpersonen.json");
+			string data = GetType().GetEmbeddedResource("contactpersonen.dat");
 			ImportFysiekePersonen(data);
 			ImportWinkelsEnBedrijven(data);
 			return true;
@@ -134,8 +138,25 @@ namespace Syntra.Data.Models
 			}
 			return false;
 		}
-		public string Export() => JsonSerializer.Serialize(Members, new JsonSerializerOptions() { WriteIndented = true, IgnoreNullValues = true });
+		private string getJsonString()
+		{
+			string jsonstr = "[";
+			foreach(var item in Members)
+			{
+				if(item.Categorie=="Fysieke contactpersoon") { 
+				jsonstr+= JsonSerializer.Serialize((FysiekeContactpersoon)item, new JsonSerializerOptions() { WriteIndented = true, IgnoreNullValues = true });
+				}
+				else if (item.Categorie == "Winkel of bedrijf") {
+					 jsonstr += JsonSerializer.Serialize((WinkelOfBedrijf)item, new JsonSerializerOptions() { WriteIndented = true, IgnoreNullValues = true });
+				}
+				jsonstr += ",";
+			}
+			jsonstr=jsonstr.Remove(jsonstr.Length - 1);
+			jsonstr += "]";
+			return jsonstr;	
+		}
 
 
+		public string Export() => getJsonString();
 	}
 }
