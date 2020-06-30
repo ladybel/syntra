@@ -5,14 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfContactPersonen.Dialogs"
         mc:Ignorable="d"
-        Title="DialogInfo" MaxHeight="700" Width="450">
-    <Window.Resources>
-        <Style TargetType="Button">
-            <Setter Property="Foreground" Value="Wheat" />
-            <Setter Property="Foreground" Value="DarkSlateGray" />
-        </Style>
-        
-    </Window.Resources>
+        Title="DialogInfo" MaxHeight="700" Width="450" Style="{StaticResource MyWindowStyle}">
+    
 
     <!--  <ContentControl DataContext="{Binding CurrentCP}" Content="{Binding}">
     <Window.Resources>
@@ -157,35 +151,23 @@
             <WrapPanel x:Name="sluitingsdagen" Visibility="Collapsed">
                 <Label Content="Sluitingsdagen" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="100" Height="26" />
                 <DataGrid x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" AutoGenerateColumns="False" SelectionMode="Single" SelectedItem="{Binding CurrSD, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding SluitingsDagenColl, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="100" >
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="DeleteButton"  Height="20" Width="20" Foreground="White"  BorderBrush="White" Click="DeleteSluitingsDagen_ButtonClick" >
-                                    <Button.Background>
-                                        <ImageBrush ImageSource="/Fotos/delete.png" Stretch="Uniform"/>
-                                    </Button.Background>
-                                </Button>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="DeleteButton"  Height="20" Width="20" Foreground="White"  BorderBrush="White" Click="DeleteSluitingsDagen_ButtonClick" >
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Fotos/delete.png" Stretch="Uniform"/>
+                                        </Button.Background>
+                                    </Button>
 
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                    <DataGridTextColumn Header="Omschrijving" Binding ="{Binding Omschrijving, Mode= TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly= "False"/>
-                </DataGrid.Columns>
+                        <DataGridTextColumn Header="Omschrijving" Binding ="{Binding Omschrijving, Mode= TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly= "False"/>
+                    </DataGrid.Columns>
                 </DataGrid>
-                <!-- <WrapPanel.Style> het werkt niet
-                    <Style TargetType="WrapPanel">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding Categorie}"
-                                 Value="Winkel of bedrijf">
-                                <Setter Property="Visibility" Value="Visible"/>
-                            </DataTrigger>
-
-                        </Style.Triggers>
-                    </Style>
-                </WrapPanel.Style>-->
-
             </WrapPanel>
             <WrapPanel x:Name="comment">
                 <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="100" Height="26" />
@@ -194,8 +176,8 @@
             </WrapPanel>
         </StackPanel>
         <StackPanel x:Name="FotoPanel" Grid.Column="3" Grid.Row="2">
-            <Button x:Name="ImageUpload"  Content="Upload andere foto"/>
-            <Image Height="100" Width="100" Source="{Binding Foto}"/>
+            <Button x:Name="ImageUpload"  Content="Upload andere foto" Click="UploadFoto_ButtonClick"/>
+            <Image x:Name="UpdateImage"  Height="100" Width="100" Source="{Binding CurrentImage}"/>
 
         </StackPanel>
 

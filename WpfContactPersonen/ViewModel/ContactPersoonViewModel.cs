@@ -34,9 +34,9 @@ namespace WpfContactPersonen.ViewModel
         public List<Contactpersoon> SelectedForDeleting = new List<Contactpersoon>();
         private List<Openingsuren> _contactOU;
         private List<SluitingsDagen> _contactSD;
+       
 
 
-        
         ObservableCollection<string> _categoriesColl = null;
         ObservableCollection<Openingsuren> _openingsurenColl = null;
         ObservableCollection<SluitingsDagen> _sluitingsdagenColl = null;
@@ -72,6 +72,8 @@ namespace WpfContactPersonen.ViewModel
             }
         }
         public BitmapImage SelectedImage { get => selectedImage; set { selectedImage = value; RaisePropertyChanged(); } }
+        public BitmapImage CurrentImage { get => currentImage; set { currentImage = value; RaisePropertyChanged(); } }
+
         public List<string> Categories
         {
             get
@@ -187,7 +189,8 @@ namespace WpfContactPersonen.ViewModel
             set => CPLijst.Members = value.Cast<Contactpersoon>().ToList();
         }
         private BitmapImage selectedImage = null;
-       
+        private BitmapImage currentImage = null;
+
 
         #endregion Properties
         #region Methods
@@ -242,19 +245,22 @@ namespace WpfContactPersonen.ViewModel
 
         public void ResetOUColl()
         {
-            OpeningsurenColl.Clear();
+            /*if(OpeningsurenColl!=null) {
+            OpeningsurenColl.Clear(); }
             foreach (var Item in ContactOpeningsuren)
             {
                 OpeningsurenColl.Add(Item);
-            }
+            }*/
         }
 
         public void ResetSDColl()
-        {   SluitingsDagenColl.Clear();
+        {/*
+            if (SluitingsDagenColl != null) { 
+            SluitingsDagenColl.Clear();}
             foreach (var Item in ContactSluitingsDagen)
             {
                 SluitingsDagenColl.Add(Item);
-            }
+            }*/
         }
 
         public void ResetCPColl()
@@ -274,8 +280,59 @@ namespace WpfContactPersonen.ViewModel
         
         }
         public void UpdateGui() => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(""));
+        //private BitmapImage selectedImage = null;
 
-        
+        public BitmapImage TryLoadImage()
+        {
+            if(CurrentCP.Categorie=="Fysieke contactpersoon") 
+            {
+                var cp = (FysiekeContactpersoon)CurrentCP;
+                if (cp.Foto?.Length > 0)
+                {
+                    MemoryStream stream = new MemoryStream(System.Convert.FromBase64String(cp.Foto));
+                    BitmapImage image = new BitmapImage();
+                    image.BeginInit();
+                    image.StreamSource = stream;
+                    image.EndInit();
+                    return image;
+                }
+            }
+            return null;
+        }
+        public string SaveImageAsB64(BitmapImage src, BitmapEncoder encoder = null) => src != null ? System.Convert.ToBase64String(SaveImage(src, encoder)) : null;
+        public byte[] SaveImage(BitmapImage src, BitmapEncoder encoder = null)
+        {
+            if (src != null)
+            {
+                encoder ??= new PngBitmapEncoder();
+                using MemoryStream ms = new MemoryStream();
+                encoder.Frames.Add(BitmapFrame.Create(src));
+                encoder.Save(ms);
+                return ms.ToArray();
+            }
+            return null;
+        }
+        public void UpdateFoto(BitmapImage img)
+        {
+            if (SelectedImage != null&&CurrentCP!=null)
+            {
+                string imgstr = SaveImageAsB64(img);
+                FysiekeContactpersoon fcp = (FysiekeContactpersoon)CurrentCP;
+                fcp.Foto = imgstr;
+                CurrentCP = fcp;
+                UpdateGui();
+            }
+        }
+        public string SaveFotoAsString()
+        {
+            if (SelectedImage != null )
+            {
+                string imgstr = SaveImageAsB64(SelectedImage);
+                return imgstr;
+            }
+            return "";
+        }
+
         #endregion Methods
 
     }

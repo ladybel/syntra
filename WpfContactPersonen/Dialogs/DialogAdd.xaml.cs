@@ -36,6 +36,7 @@ namespace WpfContactPersonen.Dialogs
         public DialogAdd(ContactPersoonViewModel vm)
         {
             ViewModel = vm;
+            
             InitializeComponent();
             DataContext = vm;
             
@@ -55,8 +56,9 @@ namespace WpfContactPersonen.Dialogs
                         string Voornaam = ContactVoornaam.Text;
                         string Telefoon = ContactTelefoon.Text;
                         string Adres = ContactAdres.Text;
+                        string foto= ViewModel.SaveFotoAsString();
                         string Comment = ContactOmschrijving.Text;
-                        FysiekeContactpersoon fp = new FysiekeContactpersoon(ID, Naam, Voornaam, Telefoon, Adres, categ, Comment);
+                        FysiekeContactpersoon fp = new FysiekeContactpersoon(ID, Naam, Voornaam, Telefoon, Adres, categ, Comment, foto);
                         ViewModel.CPLijst.Members.Add(fp);
                         ViewModel.ResetCPColl();
                         break;
@@ -93,7 +95,8 @@ namespace WpfContactPersonen.Dialogs
             voornaam.Visibility = Visibility.Visible;
             openingsuren.Visibility = Visibility.Collapsed;
             sluitingsdagen.Visibility = Visibility.Collapsed;
-            ImagePanel.Visibility= Visibility.Visible;
+            
+            FotoPanel.Visibility= Visibility.Visible;
             categ = "Fysieke contactpersoon";
         }
 
@@ -102,7 +105,8 @@ namespace WpfContactPersonen.Dialogs
             voornaam.Visibility = Visibility.Collapsed;
             openingsuren.Visibility = Visibility.Visible;
             sluitingsdagen.Visibility = Visibility.Visible;
-            ImagePanel.Visibility = Visibility.Collapsed;
+            
+           FotoPanel.Visibility = Visibility.Collapsed;
             categ = "Winkel of bedrijf";
         }
 
@@ -116,7 +120,7 @@ namespace WpfContactPersonen.Dialogs
             string Currentou = CurrentOU.Text;
             ViewModel.ContactOpeningsuren.Add(new Openingsuren(Currentou));
             ViewModel.ResetOUColl();
-            ContactOpeningsuren.Items.Add(new Openingsuren(Currentou));
+            ContactOpeningsuren.Items.Add(new Openingsuren(Currentou).Omschrijving);
             CurrentOU.Text = "";
         }
 
@@ -125,7 +129,7 @@ namespace WpfContactPersonen.Dialogs
             string Currentsd = CurrentSD.Text;
             ViewModel.ContactSluitingsDagen.Add(new SluitingsDagen(Currentsd));
             ViewModel.ResetSDColl();
-            ContactSluitingsdagen.Items.Add(new SluitingsDagen(Currentsd));
+            ContactSluitingsdagen.Items.Add(new SluitingsDagen(Currentsd).Omschrijving);
             CurrentSD.Text = "";
         }
 
@@ -134,6 +138,17 @@ namespace WpfContactPersonen.Dialogs
 
         }
 
-
+        private void LoadFoto_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog()
+            {
+                Filter = "png files (*.png)|*.png|jpg files (*.jpg)|*.jpg|All files (*.*)|*.*"
+            };
+                if (dlg.ShowDialog() == true)
+            {
+                ViewModel.SelectedImage = new BitmapImage(new Uri(dlg.FileName));
+                //ViewModel.UploadFoto();
+            }
+        }
     }
 }

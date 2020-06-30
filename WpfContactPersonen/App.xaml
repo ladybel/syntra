@@ -4,8 +4,13 @@
              xmlns:local="clr-namespace:WpfContactPersonen"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
-         <!--  <ControlTemplate x:Key="FysiekePersoonTemplate" TargetType="{x:Type ContentControl}">
+        <Style TargetType="Window" x:Key="MyWindowStyle">
+            <Setter Property="Background" Value="DarkSlateGray"/>
+            <Setter Property="Foreground" Value="Ivory"/>
+        </Style>
+    
+
+    <!--  <ControlTemplate x:Key="FysiekePersoonTemplate" TargetType="{x:Type ContentControl}">
                 <WrapPanel Margin="5,5,5,5" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Label Content="Naam"  Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Center" Width="114" Height="26"  />
                
@@ -48,9 +53,9 @@
 
             </ControlTemplate>
 
+-->
 
-
-       -->
+      
         <Style TargetType="Button">
             <Setter Property="BorderBrush" Value="{x:Null}"/>
             <Setter Property="Background" Value="{x:Null}"/>
@@ -90,12 +95,13 @@
         <Style TargetType="Label">
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="VerticalAlignment" Value="Stretch"/>
-            
+            <Setter Property="Foreground" Value="Ivory"/>
+
         </Style>
         <Style TargetType="Window">
             <Setter Property="Foreground" Value="Ivory"/>
             <Setter Property="Background" Value="DarkSlateGray"/>
-        </Style>
+        </Style> 
 
     </Application.Resources>
 </Application>

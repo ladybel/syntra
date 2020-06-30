@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfContactPersonen.Dialogs"
         mc:Ignorable="d"
-        Title="DialogAdd" MaxHeight="600" Width="600">
+        Title="DialogAdd" MaxHeight="600" Width="600" Style="{StaticResource MyWindowStyle}">
     <Window.Resources>
         <Style TargetType="Window">
             <Setter Property="Foreground" Value="Ivory"/>
@@ -18,12 +18,12 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="13"/>
-            <ColumnDefinition Width="49*"/>
-            <ColumnDefinition Width="124*"/>
-            <ColumnDefinition Width="241"/>
+            <ColumnDefinition Width="97*"/>
+            <ColumnDefinition Width="347*"/>
+            <ColumnDefinition Width="143"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="84"/>
             <RowDefinition/>
             <RowDefinition Height="54.04"/>
         </Grid.RowDefinitions>
@@ -35,62 +35,62 @@
                 <Label Foreground="Green" FontSize="12" FontWeight="Bold" Padding="5" Content="OK"/>
             </WrapPanel>
         </Button>
-
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="1" Width="332">
+        <StackPanel x:Name="FotoPanel" Grid.Column="3" Grid.Row="1" Visibility="Visible" >
+            <Button Content="Upload foto" Margin="5,5,5,5" Click="LoadFoto_ButtonClick"/>
+            <Image Height="100" Width="100" Source="{Binding SelectedImage}"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="1" Width="424" Margin="0,0,0,54" Grid.RowSpan="2">
             <WrapPanel x:Name="naam">
                 <Label Content="Naam"  Grid.Column="1" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Center" Width="90" Height="26" />
-                <TextBox x:Name="ContactNaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Naam,  Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                <TextBox x:Name="ContactNaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Naam,  Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="270" Height="22"/>
             </WrapPanel>
             <WrapPanel x:Name="voornaam">
                 <Label Content="Voornaam" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="90" Height="26" />
-                <TextBox x:Name="ContactVoornaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding Voornaam, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                <TextBox x:Name="ContactVoornaam" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3"  TextWrapping="Wrap" Text="{Binding Voornaam, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="270" Height="22"/>
             </WrapPanel>
             <WrapPanel x:Name="adres">
                 <Label Content="Adres" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Width="90" Height="26" />
-                <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Adres, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                <TextBox x:Name="ContactAdres" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Adres, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="270" Height="22"/>
             </WrapPanel>
 
             <WrapPanel x:Name="telefoon">
                 <Label Content="Telefoon" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="90" Height="26" />
-                <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Telefoon, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="22"/>
+                <TextBox x:Name="ContactTelefoon" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Telefoon, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="270" Height="22"/>
             </WrapPanel>
-            <WrapPanel x:Name="openingsuren" Grid.Row="1" Grid.ColumnSpan="3">
+            <WrapPanel x:Name="openingsuren" Grid.Row="1" Grid.ColumnSpan="3" Width="466">
                 <Label Content="Openingsuren" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" Height="26" />
-                <ListBox x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" SelectedItem="{Binding CurrentOU, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" Width="218" Height="53"/>
+                <ListBox x:Name="ContactOpeningsuren" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="3" SelectedItem="{Binding CurrentOU.Omschrijving, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" Width="270" Height="53"/>
                 <TextBox x:Name="CurrentOU" Grid.Column="3" HorizontalAlignment="Center" Margin="90,0,0,0" Grid.Row="1" Text="{Binding CurrentOU, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="18" TextChanged="CurrentOU_TextChanged"/>
 
                 <Button x:Name="Openingsuren"  Margin ="20,0,0,0" Grid.Column="3" HorizontalAlignment="Right"  Grid.Row="1" VerticalAlignment="Top" Height="20" Width="20" Click="addou" >
                     <Image Source="/Fotos\add.png" Height="15" Width="15" />
                 </Button>
+                <Label Content="Voeg openingsuren"/>
 
             </WrapPanel>
-            <WrapPanel x:Name="sluitingsdagen" Grid.Row="2" Grid.ColumnSpan="3">
+            <WrapPanel x:Name="sluitingsdagen" Grid.Row="2" Grid.ColumnSpan="3" Width="487">
                 <Label Content="Sluitingsdagen" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="90" Height="26" />
-                <ListBox x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" SelectedItem="{Binding CurrentSD, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" Width="218" Height="60"/>
+                <ListBox x:Name="ContactSluitingsdagen" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2" SelectedItem="{Binding CurrentSD, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"  VerticalAlignment="Center" Width="270" Height="60"/>
                 <TextBox x:Name="CurrentSD"  Grid.Column="3" Margin="90,0,0,0" HorizontalAlignment="Center" Grid.Row="1" Text="{Binding CurrentSD, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" VerticalAlignment="Center" Width="180" Height="18"/>
 
                 <Button  x:Name="SluitingsDagen" Grid.Column="3" HorizontalAlignment="Left" Margin="20,0,0,0" Grid.Row="1" VerticalAlignment="Top" Height="20" Width="20" Click="addsd">
                     <Image Source="/Fotos\add.png" Height="15" Width="15" />
                 </Button>
+                <Label Content="Voeg sluitingsdagen"/>
 
 
             </WrapPanel>
             <WrapPanel x:Name="comment">
                 <Label Content="Omschrijving" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="2" VerticalAlignment="Center" Width="90" Height="26" />
 
-                <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Comment, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="218" Height="30"/>
+                <TextBox x:Name="ContactOmschrijving" Grid.Column="2" HorizontalAlignment="Center" Grid.Row="2"  TextWrapping="Wrap" Text="{Binding Comment, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" Width="270" Height="30"/>
             </WrapPanel>
         </StackPanel>
         <StackPanel x:Name="panel" Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="2">
             <RadioButton x:Name="FysPers" Content="Maak een fysieke persoon aan" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="35,10,0,0" VerticalAlignment="Top" Height="15" Width="309" IsChecked="True" Checked="KeuzeFP"/>
             <RadioButton x:Name="WB" Content="Maak winkel of bedrijf aan" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" Margin="35,0,0,0" Height="15" Width="308" Checked="KeuzeWB"/>
         </StackPanel>
-        <StackPanel x:Name="ImagePanel" Grid.Column="3" Grid.Row="1">
-            <Button Content="Upload foto" Margin="5,5,5,5"/>
-            <StackPanel Height="234" Width="182" Margin="10,10,10,10">
-                <Image Source="{Binding SelectedImage}"/>
-            </StackPanel>
-        </StackPanel>
+
 
     </Grid>
 </Window>   

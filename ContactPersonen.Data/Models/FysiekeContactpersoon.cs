@@ -22,13 +22,13 @@ namespace Syntra.Data.Models
 
         [JsonPropertyName("voornaam")]
         public string Voornaam { get; set; }
-       /*
-        [JsonPropertyName("afbeelding")]
-        public string Afbeelding{ get; set; }
-        */
+       
+        [JsonPropertyName("foto")]
+        public string Foto{ get; set; }
+        
 
         public FysiekeContactpersoon() { }
-         public FysiekeContactpersoon(int id,string naam, string voornaam,string telefoon, string adres, string categorie, string comment)
+         public FysiekeContactpersoon(int id,string naam, string voornaam,string telefoon, string adres, string categorie, string comment, string foto)
          {
              ID = id;
              Naam = naam;
@@ -37,6 +37,7 @@ namespace Syntra.Data.Models
              Adres = adres;
              Categorie = categorie;
              Comment = comment;
+             Foto = foto;
          }
         
         //public override string ToString() => Naam;

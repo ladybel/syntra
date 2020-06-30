@@ -111,9 +111,9 @@ namespace WpfContactPersonen.Dialogs
                 ViewModel.ResetSDColl();
                 ViewModel.UpdateGui();
             }
-        }   
+        }
 
-        /*private void LoadImgButton_Click(object sender, RoutedEventArgs e)
+        private void UploadFoto_ButtonClick(object sender, RoutedEventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog()
             {
@@ -122,8 +122,14 @@ namespace WpfContactPersonen.Dialogs
             if (dlg.ShowDialog() == true)
             {
                 ViewModel.SelectedImage = new BitmapImage(new Uri(dlg.FileName));
+
+                UpdateImage.Source = ViewModel.SelectedImage;
+
+                ViewModel.UpdateFoto(ViewModel.SelectedImage);
             }
-        }*/
+        }
+
+
     }
 }
 

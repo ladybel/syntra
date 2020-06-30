@@ -78,6 +78,10 @@ namespace WpfContactPersonen
                     ViewMod.ContactSluitingsDagen.Add(new SluitingsDagen(item));
                 }
             }
+            if(ViewMod.CurrentCP.Categorie == "Fysieke contactpersoon")
+            {
+                ViewMod.CurrentImage = ViewMod.TryLoadImage();
+            }
 
             DialogInfo dlg = new DialogInfo(ViewMod) { Owner = this };
             if (dlg.ShowDialog() == true) { }

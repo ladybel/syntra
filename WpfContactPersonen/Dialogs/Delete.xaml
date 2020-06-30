@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfContactPersonen.Dialogs"
         mc:Ignorable="d"
 
-        Title="Delete" Height="200" Width="280">
+        Title="Delete" Height="200" Width="280" Style="{StaticResource MyWindowStyle}">
     <Window.Resources>
          <Style TargetType="Window">
             <Setter Property="Foreground" Value="Ivory"/>
